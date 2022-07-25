@@ -6,29 +6,13 @@ import java.util.stream.Stream;
 
 import static java.util.List.*;
 
-public class Caty implements Comparable<Caty> {
+public class Caty {
 
     private int x;
     private String str;
 
     public Caty(int x, String str) {
         this.x = x;
-        this.str = str;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public String getStr() {
-        return str;
-    }
-
-    public void setStr(String str) {
         this.str = str;
     }
 
@@ -40,21 +24,18 @@ public class Caty implements Comparable<Caty> {
                 + '}';
     }
 
-    @Override
-    public int compareTo(Caty o) {
-        int rsl = 0;
-        if (this.x > o.getX()) {
-            rsl = 1;
-        } else if (this.x < o.getX()) {
-            rsl = -1;
-        } else {
-            rsl = 0;
-        }
-        return rsl;
-    }
-
     public static void main(String[] args) {
-        Integer z = 2;
+        int row = 0;
+        int column = 0;
+        int[][] data = {{}, {7}, {}, {}, {5, 4}};
+        while (data[row].length == 0) {
+            if (column < data[row].length) {
+                column++;
+            } else {
+                row++;
+            }
+        }
+        System.out.println(data[row][column]);
     }
 
 }

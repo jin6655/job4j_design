@@ -25,17 +25,12 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        int row = 0;
-        int column = 0;
-        int[][] data = {{}, {7}, {}, {}, {5, 4}};
-        while (data[row].length == 0) {
-            if (column < data[row].length) {
-                column++;
-            } else {
-                row++;
-            }
+        int[] z  = {1, 3, 4, 5, 7, 6, 9};
+        int i = 0;
+        while ((z[i] % 2) != 0) {
+            i++;
         }
-        System.out.println(data[row][column]);
+        System.out.println(z[i]);
     }
 
 }

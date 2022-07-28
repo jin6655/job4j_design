@@ -25,12 +25,14 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        int[] z  = {1, 3, 4, 5, 7, 6, 9};
-        int i = 0;
-        while ((z[i] % 2) != 0) {
-            i++;
+        List<Integer> x = List.of(1, 2, 3, -1);
+        int y = 0;
+        for (Integer i : x) {
+            if (i < 0) {
+                y = i;
+            }
         }
-        System.out.println(z[i]);
+        System.out.println(y);
     }
 
 }

@@ -9,6 +9,7 @@ public class FlatMap<T> implements Iterator<T> {
 
     private final Iterator<Iterator<T>> data;
     private Iterator<T> cursor = Collections.emptyIterator();
+    private Iterator<T> cursor01 = Collections.emptyIterator();
 
     public FlatMap(Iterator<Iterator<T>> data) {
         this.data = data;

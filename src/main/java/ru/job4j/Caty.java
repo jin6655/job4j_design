@@ -35,9 +35,10 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        Date date = new Date();
-        Caty cat  = new Caty(10, "Natsu", new Date());
-        System.out.println(cat);
+        int x = -2;
+        int y = 0;
+        int z = x > y ? 0 : 1;
+        System.out.println(z);
     }
 
 }

@@ -3,21 +3,6 @@ package ru.job4j.list;
 import java.util.*;
 
 public class SimpleArrayList<T> implements List<T> {
-    /*
-    Увеличивай массив при заполнении в 2 раза
-
-    modCount  этот счётчик увеличивается при каждой модификации коллекции - методы add, set, remove
-
-    В методах, где используется индекс нужно делать валидацию. Индекс должен находиться в рамках добавленных элементов.
-    Используйте метод Objects.checkIndex() - методы remove, get
-
-    Для удаления нужно использовать метод System.arraycopy() - метод remove, set
-
-    Итератор кидает два исключения
-    NoSuchElementException - элементов больше нет
-    ConcurrentModificationException -  произошла модификация массива
-
-     */
 
     private T[] container;
 
@@ -29,10 +14,6 @@ public class SimpleArrayList<T> implements List<T> {
         this.container = (T[]) new Object[capacity];
     }
 
-    /*
-     массив полный - увеличить в два раза
-     добавить в конец
-     */
     @Override
     public void add(T value) {
         if (size >= container.length) {
@@ -73,10 +54,6 @@ public class SimpleArrayList<T> implements List<T> {
         return size;
     }
 
-    /*
-    Итератор должен реализовывать fail-fast поведение, выкидывать исключение, если коллекция изменяется
-
-     */
     @Override
     public Iterator<T> iterator() {
         int exceptedModCount = modCount;

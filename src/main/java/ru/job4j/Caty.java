@@ -1,5 +1,8 @@
 package ru.job4j;
 
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import java.util.*;
 
 public class Caty {
@@ -35,8 +38,6 @@ public class Caty {
                 new Caty(20, "Loi"),
                 new Caty(30, "Tom")
         );
-        int z  = 3;
-        System.out.println(Integer.valueOf(2) + z);
     }
 
 }

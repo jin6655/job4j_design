@@ -2,6 +2,7 @@ package ru.job4j;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import ru.job4j.collection.ForwardLinked;
 
 import java.util.*;
 
@@ -33,11 +34,7 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        List<Caty> cats = List.of(
-                new Caty(10, "Lucy"),
-                new Caty(20, "Loi"),
-                new Caty(30, "Tom")
-        );
+        System.out.println("well!");
     }
 
 }

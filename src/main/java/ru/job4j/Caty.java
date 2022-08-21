@@ -3,8 +3,11 @@ package ru.job4j;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import ru.job4j.collection.ForwardLinked;
+import ru.job4j.iterator.ListUtils;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Caty {
 
@@ -34,7 +37,8 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        System.out.println("well!");
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        System.out.println(list);
     }
 
 }

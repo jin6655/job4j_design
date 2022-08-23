@@ -28,14 +28,23 @@ public class User {
         Map<User, Object> map = new HashMap<>();
         map.put(userOne, new Object());
         map.put(userTwo, new Object());
-        for (Map.Entry<User, Object> i : map.entrySet()) {
+        /*for (Map.Entry<User, Object> i : map.entrySet()) {
             System.out.println(i.getKey() + "\n" + i.getKey().hashCode());
         }
+         */
+        System.out.println(map);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name);
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(name, user.name);
     }
 
 }

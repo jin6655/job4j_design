@@ -40,12 +40,32 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        Set<Integer> set = new SimpleSet<>();
-        set.add(null);
-        set.contains(null);
-        for (Integer i : set) {
-            System.out.println(i);
+        Map<Caty, String> map = new HashMap<>();
+        Map<Integer, String> map02  = new HashMap<>();
+        map.put(new Caty(1, "ff"), "g");
+        map.put(new Caty(2, "hhhh"), "b");
+        map.put(new Caty(1, "jj"), "c");
+        map02.put(1, "ff");
+        map02.put(2, "gg");
+        map02.put(1, "kk");
+        System.out.println(map);
         }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Caty caty = (Caty) o;
+        return x == caty.x;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x);
     }
 
 }

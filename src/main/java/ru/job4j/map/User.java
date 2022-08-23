@@ -23,16 +23,16 @@ public class User {
     }
 
     public static void main(String[] args) {
-        User userOne = new User("Olli", 3, new GregorianCalendar(2022, 8, 23));
+        User userOne = new User("Olli", 10, new GregorianCalendar(2022, 8, 23));
         User userTwo = new User("Olli", 3, new GregorianCalendar(2022, 8, 23));
+        User userThree = new User("Olli", 20, new GregorianCalendar(2022, 8, 23));
         Map<User, Object> map = new HashMap<>();
         map.put(userOne, new Object());
         map.put(userTwo, new Object());
-        /*for (Map.Entry<User, Object> i : map.entrySet()) {
+        map.put(userThree, new Object());
+        for (Map.Entry<User, Object> i : map.entrySet()) {
             System.out.println(i.getKey() + "\n" + i.getKey().hashCode());
         }
-         */
-        System.out.println(map);
     }
 
     @Override
@@ -45,6 +45,11 @@ public class User {
         }
         User user = (User) o;
         return Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
 }

@@ -26,13 +26,14 @@ public class User {
         User userOne = new User("Olli", 10, new GregorianCalendar(2022, 8, 23));
         User userTwo = new User("Olli", 3, new GregorianCalendar(2022, 8, 23));
         User userThree = new User("Olli", 20, new GregorianCalendar(2022, 8, 23));
-        Map<User, Object> map = new HashMap<>();
+        /*Map<User, Object> map = new HashMap<>();
         map.put(userOne, new Object());
         map.put(userTwo, new Object());
         map.put(userThree, new Object());
         for (Map.Entry<User, Object> i : map.entrySet()) {
             System.out.println(i.getKey() + "\n" + i.getKey().hashCode());
         }
+         */
     }
 
     @Override

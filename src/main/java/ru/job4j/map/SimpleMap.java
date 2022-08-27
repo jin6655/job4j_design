@@ -7,11 +7,6 @@ import java.util.NoSuchElementException;
 
 public class SimpleMap<K, V> implements Map<K, V> {
 
-    /*
-    Добавлять в массив по определённому индексу на основании хэш кода
-    в итераторе добавить запись на пропуск null
-     */
-
     private static final float LOAD_FACTOR = 0.75f;
 
     private int capacity = 8;

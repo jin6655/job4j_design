@@ -17,12 +17,21 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     private MapEntry<K, V>[] table = new MapEntry[capacity];
 
-    private int hash(int hashCode) {
+    /* private int hash(int hashCode) {
         return hashCode % table.length;
     }
 
     private int indexFor(int hash) {
         return hash;
+    }
+     */
+
+    private int hash(int hashCode) {
+        return hashCode ^ (hashCode >>> 16);
+    }
+
+    private int indexFor(int hash) {
+        return hash & (table.length - 1);
     }
 
     private void expand() {
@@ -39,7 +48,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         boolean rsl = false;
         int index = indexFor(hash(key.hashCode()));
         if (get(key) == null && table[index] == null) {
-            if ((float) count / capacity > 0.75) {
+            if ((float) count / capacity > LOAD_FACTOR) {
                 expand();
             }
             table[index] = new MapEntry<>(key, value);
@@ -67,7 +76,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         boolean rsl = false;
         for (MapEntry<K, V> entry : table) {
             if (entry != null && entry.key.equals(key)) {
-                int index = hash(key.hashCode());
+                int index = indexFor(hash(key.hashCode()));
                 table[index] = null;
                 rsl = true;
                 count--;

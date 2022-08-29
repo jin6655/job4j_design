@@ -2,6 +2,9 @@ package ru.job4j;
 
 import com.sun.source.tree.Tree;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Group;
@@ -14,7 +17,7 @@ import ru.job4j.set.SimpleSet;
 
 import java.util.*;
 
-public class Caty {
+public class Caty extends Application {
 
     private int x;
     private String str;
@@ -42,7 +45,10 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        System.out.println("!");
+        launch(args);
     }
 
+    @Override
+    public void start(Stage stage) throws Exception {
+    }
 }

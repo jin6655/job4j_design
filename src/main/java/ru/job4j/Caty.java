@@ -17,7 +17,7 @@ import ru.job4j.set.SimpleSet;
 
 import java.util.*;
 
-public class Caty extends Application {
+public class Caty {
 
     private int x;
     private String str;
@@ -45,10 +45,9 @@ public class Caty extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        char read = '9';
+        int i = Integer.valueOf(String.valueOf(read));
+        System.out.println(i + " " + read);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-    }
 }

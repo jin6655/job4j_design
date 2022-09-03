@@ -23,7 +23,7 @@ public class Analizy {
                         out.println(list.get(list.size() - 2) + ";" + list.get(list.size() - 1));
                     }
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

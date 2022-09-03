@@ -45,13 +45,9 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        boolean x = false;
-        String a = "300";
-        if (x && (a.equals("300") || a.equals("500"))) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
-        }
+        String i = "aaaaa bbbbb cccc";
+        String[] j = i.split("\\s+");
+        System.out.println(j);
     }
 
 }

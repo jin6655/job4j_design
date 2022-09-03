@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.text.Text;
 import ru.job4j.list.SimpleArrayList;
-import ru.job4j.map.Map;
 import ru.job4j.map.SimpleMap;
 import ru.job4j.set.Set;
 import ru.job4j.set.SimpleSet;
@@ -46,22 +45,10 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        //C:\Users\VVV\Desktop\text.01
-        //try (FileReader in = new FileReader("C:\\Users\\VVV\\Desktop\\text01.txt")) {
-        try (BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\VVV\\Desktop\\text01.txt"))) {
-            in.mark(1);
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
-            in.reset();
-            System.out.println();
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
-            System.out.println(in.readLine());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String i = "aaa=";
+        int eq = i.indexOf("=");
+        System.out.println(eq);
+        System.out.println(i.substring(eq + 1).length());
     }
 
 }

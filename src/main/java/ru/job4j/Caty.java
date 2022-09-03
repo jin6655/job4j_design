@@ -15,6 +15,7 @@ import ru.job4j.map.SimpleMap;
 import ru.job4j.set.Set;
 import ru.job4j.set.SimpleSet;
 
+import java.io.*;
 import java.util.*;
 
 public class Caty {
@@ -45,9 +46,22 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        char read = '9';
-        int i = Integer.valueOf(String.valueOf(read));
-        System.out.println(i + " " + read);
+        //C:\Users\VVV\Desktop\text.01
+        //try (FileReader in = new FileReader("C:\\Users\\VVV\\Desktop\\text01.txt")) {
+        try (BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\VVV\\Desktop\\text01.txt"))) {
+            in.mark(1);
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+            in.reset();
+            System.out.println();
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

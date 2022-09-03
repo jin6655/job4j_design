@@ -45,10 +45,13 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        String i = "aaa=";
-        int eq = i.indexOf("=");
-        System.out.println(eq);
-        System.out.println(i.substring(eq + 1).length());
+        boolean x = false;
+        String a = "300";
+        if (x && (a.equals("300") || a.equals("500"))) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
+        }
     }
 
 }

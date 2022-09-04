@@ -1,6 +1,5 @@
 package ru.job4j.generics;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class GenericUsage {

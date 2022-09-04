@@ -9,12 +9,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.text.Text;
+import ru.job4j.io.PrintFiles;
 import ru.job4j.list.SimpleArrayList;
 import ru.job4j.map.SimpleMap;
 import ru.job4j.set.Set;
 import ru.job4j.set.SimpleSet;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Caty {
@@ -44,10 +48,9 @@ public class Caty {
                 + '}';
     }
 
-    public static void main(String[] args) {
-        String i = "aaaaa bbbbb cccc";
-        String[] j = i.split("\\s+");
-        System.out.println(j);
+    public static void main(String[] args) throws IOException {
+        FileWriter in = new FileWriter("one.js");
+        in.write(10);
     }
 
 }

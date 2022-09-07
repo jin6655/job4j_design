@@ -16,6 +16,7 @@ public class ArrayITTest {
         assertThat(it.hasNext(), is(true));
         assertThat(it.hasNext(), is(true));
     }
+
     @Test
     public void whenReadSequence() {
         ArrayIt it = new ArrayIt(

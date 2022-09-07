@@ -15,6 +15,7 @@ public class MatrixItTest {
         MatrixIt it = new MatrixIt(in);
         assertThat(it.next(), is(1));
     }
+
     @Test
     public void whenFirstEmptyThenNext() {
         int[][] in = {
@@ -23,6 +24,7 @@ public class MatrixItTest {
         MatrixIt it = new MatrixIt(in);
         assertThat(it.next(), is(1));
     }
+
     @Test
     public void whenFirstEmptyThenHashNext() {
         int[][] in = {
@@ -31,6 +33,7 @@ public class MatrixItTest {
         MatrixIt it = new MatrixIt(in);
         assertThat(it.hasNext(), is(true));
     }
+
     @Test
     public void whenRowHasDiffSize() {
         int[][] in = {
@@ -41,6 +44,7 @@ public class MatrixItTest {
         assertThat(it.next(), is(2));
         assertThat(it.next(), is(3));
     }
+
     @Test
     public void whenFewEmpty() {
         int[][] in = {
@@ -78,6 +82,7 @@ public class MatrixItTest {
         assertThat(it.hasNext(), is(true));
         assertThat(it.hasNext(), is(true));
     }
+
     @Test
     public void whenNoElements() {
         int[][] in = {{}, {}, {}};

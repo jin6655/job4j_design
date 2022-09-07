@@ -16,11 +16,13 @@ public class ForwardLinkedTest {
         linked.deleteFirst();
         linked.iterator().next();
     }
+
     @Test(expected = NoSuchElementException.class)
     public void whenDeleteEmptyLinked() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
         linked.deleteFirst();
     }
+
     @Test
     public void whenMultiDelete() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
@@ -40,6 +42,7 @@ public class ForwardLinkedTest {
         assertThat(it.next(), is(1));
         assertThat(it.next(), is(2));
     }
+
     @Test
     public void whenAddAndRevertThenIter() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
@@ -50,11 +53,13 @@ public class ForwardLinkedTest {
         assertThat(it.next(), is(2));
         assertThat(it.next(), is(1));
     }
+
     @Test
     public void whenSize0ThenReturnFalse() {
         ForwardLinked<Integer> emptyList = new ForwardLinked<>();
         assertFalse(emptyList.revert());
     }
+
     @Test
     public void whenSize1ThenReturnFalse() {
         ForwardLinked<Integer> singleList = new ForwardLinked<>();

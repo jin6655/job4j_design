@@ -21,6 +21,7 @@ public class FlatMapTest {
         assertThat(flat.next(), is(2));
         assertThat(flat.next(), is(3));
     }
+
     @Test
     public void whenSeqNext() {
         Iterator<Iterator<Integer>> data = List.of(
@@ -31,6 +32,7 @@ public class FlatMapTest {
         assertThat(flat.next(), is(2));
         assertThat(flat.next(), is(3));
     }
+
     @Test
     public void whenMultiHasNext() {
         Iterator<Iterator<Integer>> data = List.of(
@@ -40,6 +42,7 @@ public class FlatMapTest {
         assertThat(flat.hasNext(), is(true));
         assertThat(flat.hasNext(), is(true));
     }
+
     @Test
     public void whenHasNextFalse() {
         Iterator<Iterator<Integer>> data = List.of(

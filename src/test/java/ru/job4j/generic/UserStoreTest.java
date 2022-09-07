@@ -23,6 +23,7 @@ public class UserStoreTest {
         User result = store.findById("10");
         assertNull(result);
     }
+
     @Test
     public void whenAddDuplicateAndFindUsernameIsPetr() {
         UserStore store = new UserStore();
@@ -31,6 +32,7 @@ public class UserStoreTest {
         User result = store.findById("1");
         assertThat(result.getUsername(), is("Petr"));
     }
+
     @Test
     public void whenReplaceThenUsernameIsMaxim() {
         UserStore store = new UserStore();
@@ -39,6 +41,7 @@ public class UserStoreTest {
         User result = store.findById("1");
         assertThat(result.getUsername(), is("Maxim"));
     }
+
     @Test
     public void whenNoReplaceUserThenNoChangeUsername() {
         UserStore store = new UserStore();
@@ -47,6 +50,7 @@ public class UserStoreTest {
         User result = store.findById("1");
         assertThat(result.getUsername(), is("Petr"));
     }
+
     @Test
     public void whenDeleteUserThenUserIsNull() {
         UserStore store = new UserStore();

@@ -14,6 +14,7 @@ public class SimpleQueueTest {
         int rsl = queue.poll();
         assertThat(rsl, is(1));
     }
+
     @Test
     public void when2PushPoll() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();
@@ -22,6 +23,7 @@ public class SimpleQueueTest {
         int rsl = queue.poll();
         assertThat(rsl, is(1));
     }
+
     @Test
     public void when2PushPollPushPoll() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();
@@ -31,11 +33,13 @@ public class SimpleQueueTest {
         int rsl = queue.poll();
         assertThat(rsl, is(2));
     }
+
     @Test(expected = NoSuchElementException.class)
     public void whenEmptyPoll() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();
         queue.poll();
     }
+
     @Test
     public void whenPushPushPollAndPush() {
         SimpleQueue<Integer> queue = new SimpleQueue<>();

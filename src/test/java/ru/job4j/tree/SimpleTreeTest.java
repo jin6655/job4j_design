@@ -33,7 +33,6 @@ public class SimpleTreeTest {
         );
     }
 
-
     @Test
     public void whenChildExistOnLeafThenNotAdd() {
         Tree<Integer> tree = new SimpleTree<>(1);

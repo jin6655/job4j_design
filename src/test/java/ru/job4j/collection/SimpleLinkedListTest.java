@@ -31,6 +31,7 @@ public class SimpleLinkedListTest {
         Iterator<Integer> it = list.iterator();
         assertThat(it.hasNext(), Is.is(true));
     }
+
     @Test
     public void whenAddIterNextOne() {
         List<Integer> list = new SimpleLinkedList<>();
@@ -38,12 +39,14 @@ public class SimpleLinkedListTest {
         Iterator<Integer> it = list.iterator();
         assertThat(it.next(), Is.is(1));
     }
+
     @Test
     public void whenEmptyIterHashNextFalse() {
         List<Integer> list = new SimpleLinkedList<>();
         Iterator<Integer> it = list.iterator();
         assertThat(it.hasNext(), Is.is(false));
     }
+
     @Test
     public void whenAddIterMultiHasNextTrue() {
         List<Integer> list = new SimpleLinkedList<>();
@@ -52,6 +55,7 @@ public class SimpleLinkedListTest {
         assertThat(it.hasNext(), Is.is(true));
         assertThat(it.hasNext(), Is.is(true));
     }
+
     @Test
     public void whenAddIterNextOneNextTwo() {
         List<Integer> list = new SimpleLinkedList<>();

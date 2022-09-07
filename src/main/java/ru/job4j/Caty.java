@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.text.Text;
 import ru.job4j.io.PrintFiles;
+import ru.job4j.io.duplicates.FileProperty;
 import ru.job4j.list.SimpleArrayList;
 import ru.job4j.map.SimpleMap;
 import ru.job4j.set.Set;
@@ -49,8 +50,10 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        FileWriter in = new FileWriter("one.js");
-        in.write(10);
+        FileProperty i = new FileProperty(208, "log.log");
+        if (i.equals(new FileProperty(208, "log.log"))) {
+            System.out.println(1);
+        }
     }
 
 }

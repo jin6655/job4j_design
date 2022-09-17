@@ -10,13 +10,6 @@ import java.util.function.Predicate;
 
 public class Search {
 
-    /*
-    1. Доработайте программу ru.job4j.io.Search. Программа должна запускаться с параметрами.
-    Первый параметр - начальная папка.
-    Второй параметр - расширение файлов, которые нужно искать.
-    Необходимо добавить валидацию данных параметров. Валидацию параметров надо вынести в отдельный метод.
-     */
-
     public static List<Path> search(Path root, Predicate<Path> condition) throws IOException {
         SearchFiles searcher = new SearchFiles(condition);
         Files.walkFileTree(root, searcher);

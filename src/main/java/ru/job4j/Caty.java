@@ -9,10 +9,11 @@ import ru.job4j.set.Set;
 import ru.job4j.set.SimpleSet;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
+
+import static java.nio.file.FileVisitResult.CONTINUE;
 
 public class Caty {
 
@@ -42,8 +43,29 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        String str = "238145";
-        System.out.println(str.indexOf("1"));
+        Path file = Paths.get("C:\\projects\\job4j_design\\");
+        Files.walkFileTree(file, new FileVisitor<Path>() {
+            @Override
+            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                return CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                System.out.println(file.toAbsolutePath());
+                return CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                return CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                return CONTINUE;
+            }
+        });
     }
 
 }

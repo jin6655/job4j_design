@@ -50,9 +50,16 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        FileProperty i = new FileProperty(208, "log.log");
-        if (i.equals(new FileProperty(208, "log.log"))) {
-            System.out.println(1);
+        Path fileRead = Paths.get("C:\\Users\\VVV\\Desktop\\text01.txt");
+        Path fileWrite = Paths.get("C:\\Users\\VVV\\Desktop\\text02.txt");
+        try (BufferedReader in = new BufferedReader(new FileReader(fileRead.toFile()));
+             BufferedWriter out = new BufferedWriter(new FileWriter(fileWrite.toFile()))) {
+            for (String i = in.readLine(); i != null; i = in.readLine()) {
+                System.out.println(i);
+                out.write(i + "\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

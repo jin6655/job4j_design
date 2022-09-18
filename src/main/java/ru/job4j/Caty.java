@@ -43,29 +43,7 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        Path file = Paths.get("C:\\projects\\job4j_design\\");
-        Files.walkFileTree(file, new FileVisitor<Path>() {
-            @Override
-            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                return CONTINUE;
-            }
-
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                System.out.println(file.toAbsolutePath());
-                return CONTINUE;
-            }
-
-            @Override
-            public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-                return CONTINUE;
-            }
-
-            @Override
-            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                return CONTINUE;
-            }
-        });
+        System.out.println("ввввввв");
     }
 
 }

@@ -43,7 +43,12 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println("ввввввв");
+        StringJoiner join = new StringJoiner(";");
+        List<Integer> list = List.of(1, 2, 3, 4);
+        for (Integer i : list) {
+            join.add(i.toString());
+        }
+        System.out.println(join);
     }
 
 }

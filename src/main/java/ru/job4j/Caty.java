@@ -43,13 +43,8 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        String[] msg = {"1111", "333=1", "4444"};
-        String i = Arrays.stream(msg).filter(s -> s.contains("=")).map(s -> s.substring(s.indexOf("=") + 1))
-                .findFirst().orElse("");
-        if (i.length() > 0) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
+        try (FileWriter out = new FileWriter("./src/main/resources/log4j.properties")) {
+            out.write("");
         }
     }
 

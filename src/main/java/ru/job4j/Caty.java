@@ -43,12 +43,14 @@ public class Caty {
     }
 
     public static void main(String[] args) throws IOException {
-        StringJoiner join = new StringJoiner(";");
-        List<Integer> list = List.of(1, 2, 3, 4);
-        for (Integer i : list) {
-            join.add(i.toString());
+        String[] msg = {"1111", "333=1", "4444"};
+        String i = Arrays.stream(msg).filter(s -> s.contains("=")).map(s -> s.substring(s.indexOf("=") + 1))
+                .findFirst().orElse("");
+        if (i.length() > 0) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
         }
-        System.out.println(join);
     }
 
 }

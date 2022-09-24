@@ -6,16 +6,15 @@ import java.net.Socket;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class EchoServer {
 
-    private static String message(String msg) {
-        String rsl = "";
-        int index = msg.indexOf("=");
-        if (index != -1) {
-            rsl = msg.substring(index + 1);
-        }
-        return rsl;
+    private static String message(String[] msg) {
+        return Arrays.stream(msg)
+                .filter(s -> s.contains("?msg="))
+                .map(s -> s.substring(s.indexOf("=") + 1))
+                .findFirst().orElse("");
     }
 
     public static void main(String[] args) throws IOException {
@@ -28,16 +27,18 @@ public class EchoServer {
                      )) {
                     out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     for (String str = in.readLine(); str != null && !str.isEmpty(); str = in.readLine()) {
-                        String[] rsl = str.split(" ");
-                        for (String i : rsl) {
-                            String msg = EchoServer.message(i);
+                            String msg = EchoServer.message(str.split(" "));
                             if (msg.equals("Hello")) {
-                                System.out.println("Hello :)");
-                            } else if (msg.equals("Bye")) {
-                                System.out.println("bye bye");
+                                out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                                out.write("Hello, dear friend.".getBytes());
+                            } else if (msg.equals("Exit")) {
+                                out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                                out.write("Bye.".getBytes());
                                 server.close();
+                            } else if (msg.length() > 1) {
+                                out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                                out.write("What?".getBytes());
                             }
-                        }
                     }
                     out.flush();
                 }

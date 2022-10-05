@@ -16,6 +16,22 @@ public class Bob {
         this.poetry = poetry;
     }
 
+    public boolean isFate() {
+        return fate;
+    }
+
+    public int getGrowth() {
+        return growth;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public String[] getPoetry() {
+        return poetry;
+    }
+
     @Override
     public String toString() {
         return "Bob{"

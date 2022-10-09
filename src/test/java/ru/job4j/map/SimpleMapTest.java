@@ -1,6 +1,7 @@
 package ru.job4j.map;
 
 import org.junit.Test;
+import ru.job4j.iterator.map.SimpleMap;
 
 import java.util.Iterator;
 

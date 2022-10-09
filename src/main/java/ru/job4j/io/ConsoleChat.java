@@ -1,7 +1,5 @@
 package ru.job4j.io;
 
-import javafx.scene.Scene;
-
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;

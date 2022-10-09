@@ -1,4 +1,4 @@
-package ru.job4j.set;
+package ru.job4j.serialization.set;
 
 import ru.job4j.list.SimpleArrayList;
 import java.util.Iterator;

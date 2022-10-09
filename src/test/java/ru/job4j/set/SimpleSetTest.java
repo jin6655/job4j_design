@@ -1,6 +1,8 @@
 package ru.job4j.set;
 
 import org.junit.Test;
+import ru.job4j.serialization.set.Set;
+import ru.job4j.serialization.set.SimpleSet;
 
 import static org.junit.Assert.*;
 

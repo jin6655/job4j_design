@@ -11,6 +11,7 @@ public class CSVReaderTest {
 
     @Rule
     public TemporaryFolder temporaryFolder = new TemporaryFolder();
+
     @Test
     public void whenFilterTwoColumns() throws Exception {
         String data = String.join(

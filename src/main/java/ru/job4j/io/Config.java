@@ -30,7 +30,8 @@ public class Config {
                     throw new IllegalArgumentException();
                 }
                 if (eq != -1) {
-                    values.put(i.substring(0, eq), i.substring(eq + 1));
+                    String[] key = i.substring(0, eq).split("\\.");
+                    values.put(key[key.length - 1], i.substring(eq + 1));
                 }
             }
         } catch (IOException e) {
@@ -54,7 +55,13 @@ public class Config {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Config("app.properties"));
+        //System.out.println(new Config("app.properties"));
+        Config x = new Config("app.properties");
+        x.load();
+        for (Map.Entry<String, String> entry : x.values.entrySet() ) {
+            System.out.print("KEY " + entry.getKey());
+            System.out.println(" VALUE " + entry.getValue());
+        }
     }
 
 }

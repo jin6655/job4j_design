@@ -31,24 +31,10 @@ public class Caty {
     }
 
     public static void main(String[] args) {
-        String reg = "*.?xt";
-        String reqStr = reg.replace(".", "\\.")
-                .replace("?", ".")
-                .replace("*", "");
-        Pattern pattern = Pattern.compile("\\..xt");
-        String[] str = {
-                "Abs for mtAbf \n dfg.txt sad Abb kfksd.nxt",
-                "Abs for mtAbf \n dfg sad Abb ktfkd.txt",
-                "Abs for mtAbf \n dfg sad Abb ktfkstxt"
-        };
-        for (String i: str) {
-            Matcher matcher = pattern.matcher(i);
-            while (matcher.find()) {
-                System.out.print(i.substring(matcher.start(), matcher.end()));
-                System.out.println();
-            }
-        }
-        System.out.println(reqStr);
+        String black = "bl";
+        String white  = "wh";
+        String rsl = String.format("open %s and open %s and close %s", "red", black, white);
+        System.out.println(rsl);
     }
 
 }

@@ -9,23 +9,20 @@ import java.util.StringJoiner;
 
 public class TableEditor implements AutoCloseable {
 
-    /*- createTable() – создает пустую таблицу без столбцов с указанным именем;
-- dropTable() – удаляет таблицу по указанному имени;
-- addColumn() – добавляет столбец в таблицу;
-- dropColumn() – удаляет столбец из таблицы;
-- renameColumn() – переименовывает столбец.
-     */
-
     private Connection connection;
     private Properties properties;
 
-    public TableEditor(Properties properties) {
+    public TableEditor(Properties properties) throws Exception {
         this.properties = properties;
         initConnection();
     }
 
-    private void initConnection() {
-        connection = null;
+    private void initConnection() throws Exception {
+        Class.forName(properties.getProperty("driver"));
+        connection = DriverManager.getConnection(
+                properties.getProperty("url"),
+                properties.getProperty("username"),
+                properties.getProperty("password"));
     }
 
     private void out(String sql, String text, String tableName) throws SQLException {
@@ -85,17 +82,12 @@ public class TableEditor implements AutoCloseable {
     }
 
     public static void main(String[] args) throws Exception {
-        Properties prop = new Properties();
+        Properties properties = new Properties();
         try (BufferedReader read = new BufferedReader(new FileReader("settingSql.properties"))) {
-            prop.load(read);
+            properties.load(read);
         }
-        TableEditor tableEditor = new TableEditor(prop);
-        Class.forName(tableEditor.properties.getProperty("driver"));
-        Connection connect = DriverManager.getConnection(
-                tableEditor.properties.getProperty("url"),
-                tableEditor.properties.getProperty("username"),
-                tableEditor.properties.getProperty("password"));
-        try (connect) {
+        TableEditor tableEditor = new TableEditor(properties);
+        try (Connection connect = tableEditor.connection) {
             try (Statement statement = connect.createStatement()) {
                 tableEditor.connection = connect;
                 tableEditor.createTable("red_table");

@@ -83,7 +83,10 @@ public class ReportEngineTest {
         Report report = new ReportProgrammers();
         ReportEngine engine = new ReportEngine(report, store);
         StringBuilder expect = new StringBuilder();
-        expect.append("</report>");
+        expect.append("<!DOCTYPE html>").append(System.lineSeparator()).append("</html")
+                .append(System.lineSeparator())
+                .append("<title>").append("<Employees>").append("</title")
+                .append(System.lineSeparator());
         for (Employee em : store.getEmployees()) {
             expect.append(System.lineSeparator())
                     .append("<worker>").append(System.lineSeparator())
@@ -101,7 +104,7 @@ public class ReportEngineTest {
                     .append("</salary>").append(System.lineSeparator())
                     .append("</worker>").append(System.lineSeparator());
         }
-        expect.append("</report>");
+        expect.append("</html>");
         assertThat(engine.generate(em -> true), is(expect.toString()));
     }
 

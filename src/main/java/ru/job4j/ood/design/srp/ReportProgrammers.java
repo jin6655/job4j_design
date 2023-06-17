@@ -9,7 +9,10 @@ public class ReportProgrammers implements Report {
     @Override
     public String generate(Predicate<Employee> filter, Store store) {
         StringBuilder text = new StringBuilder();
-        text.append("</report>");
+        text.append("<!DOCTYPE html>").append(System.lineSeparator()).append("</html")
+                .append(System.lineSeparator())
+                .append("<title>").append("<Employees>").append("</title")
+                .append(System.lineSeparator());
         for (Employee em : store.findBy(filter)) {
             text.append(System.lineSeparator())
                     .append("<worker>").append(System.lineSeparator())
@@ -27,7 +30,7 @@ public class ReportProgrammers implements Report {
                     .append("</salary>").append(System.lineSeparator())
                     .append("</worker>").append(System.lineSeparator());
         }
-        text.append("</report>");
+        text.append("</html>");
         return text.toString();
     }
 

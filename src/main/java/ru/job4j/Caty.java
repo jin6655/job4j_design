@@ -1,8 +1,17 @@
 package ru.job4j;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.*;
 import java.awt.event.ItemEvent;
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +24,8 @@ import java.util.stream.Collectors;
 
 public class Caty {
 
-    private int x = 5;
+    private int x;
+
     private String str;
 
     public Caty() {
@@ -64,15 +74,16 @@ public class Caty {
         }
     }
 
-    public static List<Item> findBy (List<Item> list, Predicate<Item> filter) {
+    public static List<Item> findBy(List<Item> list, Predicate<Item> filter) {
         List<Item> rsl = list.stream().filter(filter).collect(Collectors.toList());
         return rsl;
     }
 
-    public static void main(String[] args) throws IOException {
-        int y = 100;
-        double x = 100 * (1 - 0.13);
-        System.out.println(x);
+    public static void main(String[] args) throws Exception {
+        StringBuilder rsl = new StringBuilder();
+        rsl.append("\"11\"\n");
+        rsl.append("22");
+        System.out.println(rsl.toString());
     }
 
 }

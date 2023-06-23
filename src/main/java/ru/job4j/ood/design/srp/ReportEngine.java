@@ -1,8 +1,14 @@
 package ru.job4j.ood.design.srp;
 
+import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.util.function.Predicate;
 
 public class ReportEngine {
+
+    //1. Добавить поддержку формата XML в генераторе отчетов. Для сериализации использовать классы, описанные в разделе IO
+    //2. Добавить поддержку формата JSON в генераторе отчетов. Для сериализации использовать классы, описанные в разделе IO
+    //3. Написать тесты
 
     private Report report;
     private Store store;
@@ -13,7 +19,12 @@ public class ReportEngine {
     }
 
     public String generate(Predicate<Employee> filter) {
-        return report.generate(filter, store);
+        try {
+            return report.generate(filter, store);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

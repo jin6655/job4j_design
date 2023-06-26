@@ -1,5 +1,8 @@
 package ru.job4j;
 
+import ru.job4j.ood.parcking.Car;
+import ru.job4j.ood.parcking.Truck;
+
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -62,12 +65,13 @@ public class Caty {
     }
 
     public static void main(String[] args) throws Exception {
-        Calendar now = Calendar.getInstance();
-        now.add(Calendar.DAY_OF_YEAR, -10);
-        Calendar d2 = Calendar.getInstance();
-        d2.add(Calendar.DAY_OF_YEAR, -5);
-        System.out.println(now.getTime());
-        System.out.println(d2.getTime());
+        System.out.println("!");
+        Car car = new Truck(10);
+        String x = car.getClass().getName();
+        String y = Truck.class.getName();
+        System.out.println(car.getClass().getName());
+        System.out.println(Truck.class.getName());
+        System.out.println(x.equals(y));
     }
 
 }

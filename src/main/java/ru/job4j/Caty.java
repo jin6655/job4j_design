@@ -1,25 +1,7 @@
 package ru.job4j;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.*;
-import java.awt.event.ItemEvent;
-import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Consumer;
+import java.util.*;
 import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Caty {
@@ -80,10 +62,12 @@ public class Caty {
     }
 
     public static void main(String[] args) throws Exception {
-        StringBuilder rsl = new StringBuilder();
-        rsl.append("\"11\"\n");
-        rsl.append("22");
-        System.out.println(rsl.toString());
+        Calendar now = Calendar.getInstance();
+        now.add(Calendar.DAY_OF_YEAR, -10);
+        Calendar d2 = Calendar.getInstance();
+        d2.add(Calendar.DAY_OF_YEAR, -5);
+        System.out.println(now.getTime());
+        System.out.println(d2.getTime());
     }
 
 }

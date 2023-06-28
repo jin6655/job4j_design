@@ -1,17 +1,16 @@
 package ru.job4j;
 
-import ru.job4j.ood.parcking.Car;
-import ru.job4j.ood.parcking.Truck;
-
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Caty {
 
     private int x;
 
     private String str;
+
+    private static final List<Caty> cats = new ArrayList<>();
 
     public Caty() {
     }
@@ -27,6 +26,10 @@ public class Caty {
 
     public String getStr() {
         return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
     }
 
     @Override
@@ -59,19 +62,13 @@ public class Caty {
         }
     }
 
-    public static List<Item> findBy(List<Item> list, Predicate<Item> filter) {
-        List<Item> rsl = list.stream().filter(filter).collect(Collectors.toList());
-        return rsl;
-    }
-
     public static void main(String[] args) throws Exception {
-        System.out.println("!");
-        Car car = new Truck(10);
-        String x = car.getClass().getName();
-        String y = Truck.class.getName();
-        System.out.println(car.getClass().getName());
-        System.out.println(Truck.class.getName());
-        System.out.println(x.equals(y));
+        String string = "rat";
+        String string02 = "bat";
+        int x = 1;
+        String str01 = String.format("%s %s", string, string02);
+        String str02 = String.format("%1$" + x + "s", "");
+        System.out.println(str02 + str01);
     }
 
 }

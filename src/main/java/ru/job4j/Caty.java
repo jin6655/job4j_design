@@ -1,8 +1,6 @@
 package ru.job4j;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Caty {
 
@@ -63,12 +61,11 @@ public class Caty {
     }
 
     public static void main(String[] args) throws Exception {
-        String string = "rat";
-        String string02 = "bat";
-        int x = 1;
-        String str01 = String.format("%s %s", string, string02);
-        String str02 = String.format("%1$" + x + "s", "");
-        System.out.println(str02 + str01);
-    }
+        Calendar now = Calendar.getInstance();
+        Calendar d1 = Calendar.getInstance();
+        d1.add(Calendar.DAY_OF_YEAR, 10);
+        System.out.println(now.getTime());
+        System.out.println(d1.getTime());
+        }
 
 }

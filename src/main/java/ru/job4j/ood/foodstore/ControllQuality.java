@@ -5,17 +5,22 @@ import java.util.function.Predicate;
 
 public class ControllQuality {
 
-    private static final Map<String, Store> STORAGE = new HashMap<>();
+    private List<Store> storage = new ArrayList<>();
+    private final Predicate<Double> DISCOUNT_CONDITIONS = s -> s >= 0.75 && s <= 1;
 
-    public void addStore(String nameStore,  Store store) {
-        STORAGE.put(nameStore, store);
+    public ControllQuality(List<Store> storage) {
+        this.storage = storage;
     }
 
-    public static double daysBetweenTwoDates(Calendar firstDate, Calendar secondDate) {
+    public List<Store> getStorage() {
+        return storage;
+    }
+
+    private static double daysBetweenTwoDates(Calendar firstDate, Calendar secondDate) {
         return Math.abs((double) (secondDate.getTimeInMillis() - firstDate.getTimeInMillis()) / (1000 * 60 * 60 * 24));
     }
 
-    public static double expirationDateCents(Food food) {
+    private static double expirationDateCents(Food food) {
         Calendar now = Calendar.getInstance();
         Calendar d1 = food.getCreateDate();
         Calendar d2 = food.getExpiryDate();
@@ -28,41 +33,41 @@ public class ControllQuality {
         return rsl;
     }
 
+    public void addStore(Store store) {
+        storage.add(store);
+    }
+
+    public boolean addFood(Food food) {
+        Boolean rsl = false;
+        for (Store store : storage) {
+            Double expirationDateCents = expirationDateCents(food);
+            if (store.getCONDITIONS_CENTS().test(expirationDateCents)) {
+                store.add(food);
+                if (DISCOUNT_CONDITIONS.test(expirationDateCents)) {
+                    food.setPrice(food.getPrice() * food.getDiscount());
+                }
+                rsl = true;
+                break;
+            }
+        }
+        return rsl;
+    }
+
     public void redistribution() {
         List<Food> foodDistribution = new ArrayList<>();
-        Predicate<Double> predicateDiscount = s -> s >= 0.75 && s <= 1;
-        System.out.println("Инвентаризация");
-        for (Map.Entry<String, Store> store : STORAGE.entrySet()) {
-            List<Food> list = store.getValue().getStorage();
-            System.out.println("склад " + store.getKey());
+        for (Store store : storage) {
+            List<Food> list = store.getSTORAGE();
             for (Food food : list) {
                 Double expirationDateCents = expirationDateCents(food);
-                System.out.println("Food = " + food);
-                System.out.println("expDateCents = " + expirationDateCents);
-                Predicate<Double> pred = store.getValue().getCONDITIONS_CENTS();
-                System.out.println("Проверка товара на срок годности - " + pred.test(expirationDateCents));
+                Predicate<Double> pred = store.getCONDITIONS_CENTS();
                 if (!pred.test(expirationDateCents)) {
                     foodDistribution.add(food);
                 }
             }
-            store.getValue().getStorage().removeAll(foodDistribution);
-            System.out.println();
+            store.getSTORAGE().removeAll(foodDistribution);
         }
-        System.out.println("Список на распределение");
-        System.out.println(foodDistribution);
-        System.out.println("Распределение");
         for (Food food : foodDistribution) {
-            Double expirationDateCents = expirationDateCents(food);
-            for (Map.Entry<String, Store> store : STORAGE.entrySet()) {
-                Predicate<Double> pred = store.getValue().getCONDITIONS_CENTS();
-                if (pred.test(expirationDateCents)) {
-                    if (predicateDiscount.test(expirationDateCents)) {
-                        food.setPrice(food.getPrice() * food.getDiscount());
-                    }
-                    store.getValue().getStorage().add(food);
-                    break;
-                }
-            }
+            addFood(food);
         }
     }
 

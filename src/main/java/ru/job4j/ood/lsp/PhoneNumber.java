@@ -26,10 +26,10 @@ public class PhoneNumber {
 
     @Override
     public String toString() {
-        return "PhoneNumber{" +
-                countryCode + "-" +
-                cityCode + "-" +
-                number +
-                '}';
+        return "PhoneNumber{"
+                + countryCode + "-"
+                + cityCode + "-"
+                + number
+                + '}';
     }
 }

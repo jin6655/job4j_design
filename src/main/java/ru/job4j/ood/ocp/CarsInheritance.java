@@ -26,5 +26,4 @@ public class CarsInheritance {
         cars.forEach(Car::sound);
     }
 
-
 }

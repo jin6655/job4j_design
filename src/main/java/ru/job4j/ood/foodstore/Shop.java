@@ -9,8 +9,8 @@ public class Shop implements Store<Food> {
 
     private String name;
 
-    private final List<Food> STORAGE = new ArrayList<>();
-    private final Predicate<Double> CONDITIONS_CENTS = s -> s >= 0.25 && s <= 1;
+    private final List<Food> storage = new ArrayList<>();
+    private final Predicate<Double> conditionsCents = s -> s >= 0.25 && s <= 1;
 
     public Shop(String name) {
         this.name = name;
@@ -22,21 +22,21 @@ public class Shop implements Store<Food> {
 
     @Override
     public void add(Food model) {
-        STORAGE.add(model);
+        storage.add(model);
     }
 
     @Override
     public void remove(Food model) {
-        STORAGE.remove(model);
+        storage.remove(model);
     }
 
     @Override
-    public List<Food> getSTORAGE() {
-        return STORAGE;
+    public List<Food> getStorage() {
+        return storage;
     }
 
-    public Predicate<Double> getCONDITIONS_CENTS() {
-        return CONDITIONS_CENTS;
+    public Predicate<Double> getConditionsCents() {
+        return conditionsCents;
     }
 
     @Override
@@ -48,11 +48,11 @@ public class Shop implements Store<Food> {
             return false;
         }
         Shop shop = (Shop) o;
-        return Objects.equals(name, shop.name) && Objects.equals(STORAGE, shop.STORAGE) && Objects.equals(CONDITIONS_CENTS, shop.CONDITIONS_CENTS);
+        return Objects.equals(name, shop.name) && Objects.equals(storage, shop.storage) && Objects.equals(conditionsCents, shop.conditionsCents);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, STORAGE, CONDITIONS_CENTS);
+        return Objects.hash(name, storage, conditionsCents);
     }
 }

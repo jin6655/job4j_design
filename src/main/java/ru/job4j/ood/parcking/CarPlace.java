@@ -16,7 +16,7 @@ public class CarPlace implements Place {
     }
 
     @Override
-    public void Parking(Car car) {
+    public void parking(Car car) {
         cars.add(car);
         placeSize  -= car.getSize();
     }

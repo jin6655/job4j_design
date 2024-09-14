@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 public class ControllQuality {
 
     private List<Store> storage = new ArrayList<>();
-    private final Predicate<Double> DISCOUNT_CONDITIONS = s -> s >= 0.75 && s <= 1;
+    private final Predicate<Double> discountConditions = s -> s >= 0.75 && s <= 1;
 
     public ControllQuality(List<Store> storage) {
         this.storage = storage;
@@ -41,9 +41,9 @@ public class ControllQuality {
         Boolean rsl = false;
         for (Store store : storage) {
             Double expirationDateCents = expirationDateCents(food);
-            if (store.getCONDITIONS_CENTS().test(expirationDateCents)) {
+            if (store.getConditionsCents().test(expirationDateCents)) {
                 store.add(food);
-                if (DISCOUNT_CONDITIONS.test(expirationDateCents)) {
+                if (discountConditions.test(expirationDateCents)) {
                     food.setPrice(food.getPrice() * food.getDiscount());
                 }
                 rsl = true;
@@ -56,15 +56,15 @@ public class ControllQuality {
     public void redistribution() {
         List<Food> foodDistribution = new ArrayList<>();
         for (Store store : storage) {
-            List<Food> list = store.getSTORAGE();
+            List<Food> list = store.getStorage();
             for (Food food : list) {
                 Double expirationDateCents = expirationDateCents(food);
-                Predicate<Double> pred = store.getCONDITIONS_CENTS();
+                Predicate<Double> pred = store.getConditionsCents();
                 if (!pred.test(expirationDateCents)) {
                     foodDistribution.add(food);
                 }
             }
-            store.getSTORAGE().removeAll(foodDistribution);
+            store.getStorage().removeAll(foodDistribution);
         }
         for (Food food : foodDistribution) {
             addFood(food);

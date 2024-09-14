@@ -20,7 +20,7 @@ public class Parking {
         for (Place place : parking) {
             if (place.getPredicate().test(car)) {
                 System.out.println("Парковка");
-                place.Parking(car);
+                place.parking(car);
                 rsl = true;
                 break;
             }

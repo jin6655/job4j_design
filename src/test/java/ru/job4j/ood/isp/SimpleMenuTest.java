@@ -10,7 +10,6 @@ import java.util.List;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.junit.Assert.assertEquals;
 
-
 public class SimpleMenuTest {
 
     private final PrintStream standardOut = System.out;

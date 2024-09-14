@@ -11,8 +11,8 @@ public interface Store<T extends Food> {
 
     void remove(T model);
 
-    List<T> getSTORAGE();
+    List<T> getStorage();
 
-    Predicate<Double> getCONDITIONS_CENTS();
+    Predicate<Double> getConditionsCents();
 
 }

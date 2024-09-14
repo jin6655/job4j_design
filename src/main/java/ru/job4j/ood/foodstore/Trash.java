@@ -9,8 +9,8 @@ public class Trash implements Store<Food> {
 
     private String name;
 
-    private final List<Food> STORAGE = new ArrayList<>();
-    private final Predicate<Double> CONDITIONS_CENTS = s -> s > 1;
+    private final List<Food> storage = new ArrayList<>();
+    private final Predicate<Double> conditionsCents = s -> s > 1;
 
     public Trash(String name) {
         this.name = name;
@@ -22,21 +22,21 @@ public class Trash implements Store<Food> {
 
     @Override
     public void add(Food model) {
-        STORAGE.add(model);
+        storage.add(model);
     }
 
     @Override
     public void remove(Food model) {
-        STORAGE.remove(model);
+        storage.remove(model);
     }
 
     @Override
-    public List<Food> getSTORAGE() {
-        return STORAGE;
+    public List<Food> getStorage() {
+        return storage;
     }
 
-    public Predicate<Double> getCONDITIONS_CENTS() {
-        return CONDITIONS_CENTS;
+    public Predicate<Double> getConditionsCents() {
+        return conditionsCents;
     }
 
     @Override
@@ -48,11 +48,11 @@ public class Trash implements Store<Food> {
             return false;
         }
         Trash trash = (Trash) o;
-        return Objects.equals(name, trash.name) && Objects.equals(STORAGE, trash.STORAGE) && Objects.equals(CONDITIONS_CENTS, trash.CONDITIONS_CENTS);
+        return Objects.equals(name, trash.name) && Objects.equals(storage, trash.storage) && Objects.equals(conditionsCents, trash.conditionsCents);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, STORAGE, CONDITIONS_CENTS);
+        return Objects.hash(name, storage, conditionsCents);
     }
 }

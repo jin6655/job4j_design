@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
-import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 public class Config {
 
@@ -58,7 +56,7 @@ public class Config {
         //System.out.println(new Config("app.properties"));
         Config x = new Config("app.properties");
         x.load();
-        for (Map.Entry<String, String> entry : x.values.entrySet() ) {
+        for (Map.Entry<String, String> entry : x.values.entrySet()) {
             System.out.print("KEY " + entry.getKey());
             System.out.println(" VALUE " + entry.getValue());
         }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TODOApp {
 
-    private void userSurvey (Menu menu, ActionDelegate action, MenuPrinter printConsole) {
+    private void userSurvey(Menu menu, ActionDelegate action, MenuPrinter printConsole) {
         String exit = "";
         Scanner scanner = new Scanner(System.in);
         while (!exit.equals("0")) {
@@ -29,7 +29,6 @@ public class TODOApp {
             }
         }
     }
-
 
     public static void main(String[] args) {
         TODOApp app = new TODOApp();

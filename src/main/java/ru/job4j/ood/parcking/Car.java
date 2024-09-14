@@ -14,8 +14,8 @@ public abstract class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "size=" + size +
-                '}';
+        return "Car{"
+                + "size=" + size
+                + '}';
     }
 }

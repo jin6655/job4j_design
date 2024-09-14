@@ -67,14 +67,18 @@ public class Food {
 
     protected static void validateDiscount(double discount) {
         if (discount < 0 || discount > 1) {
-            throw  new IllegalArgumentException("The percentage discount value must be within 100%, enter a value from 0 to 1.");
+            throw new IllegalArgumentException("The percentage discount value must be within 100%, enter a value from 0 to 1.");
         }
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Food food = (Food) o;
         return Objects.equals(name, food.name);
     }
@@ -86,13 +90,13 @@ public class Food {
 
     @Override
     public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", expiryDate=" + expiryDate.getTime() +
-                ", createDate=" + createDate.getTime() +
-                ", price=" + price +
-                ", discount=" + discount +
-                '}';
+        return "Food{"
+                + "name='" + name + '\''
+                + ", expiryDate=" + expiryDate.getTime()
+                + ", createDate=" + createDate.getTime()
+                + ", price=" + price
+                + ", discount=" + discount
+                + '}';
     }
 
 }

@@ -12,7 +12,7 @@ public class ControllQualityTest {
 
     @Test
     public void whenAddFoodInStore() {
-        ControllQuality controllQuality = new ControllQuality(List.of (
+        ControllQuality controllQuality = new ControllQuality(List.of(
                 new Warehouse("Warehouse"), new Shop("Shop"), new Trash("Trash")
         ));
         Calendar created  = Calendar.getInstance();
@@ -34,15 +34,15 @@ public class ControllQualityTest {
         controllQuality.addFood(expectedShopWithDiscount);
         expectedShopWithDiscount.setPrice(expectedShopWithDiscount.getPrice() * expectedShopWithDiscount.getDiscount());
         controllQuality.addFood(expectedTrash);
-        assertTrue(controllQuality.getStorage().get(0).getSTORAGE().contains(expectedWarehouse));
-        assertTrue(controllQuality.getStorage().get(1).getSTORAGE().contains(expectedShop));
-        assertTrue(controllQuality.getStorage().get(1).getSTORAGE().get(1).equals(expectedShopWithDiscount));
-        assertTrue(controllQuality.getStorage().get(2).getSTORAGE().contains(expectedTrash));
+        assertTrue(controllQuality.getStorage().get(0).getStorage().contains(expectedWarehouse));
+        assertTrue(controllQuality.getStorage().get(1).getStorage().contains(expectedShop));
+        assertTrue(controllQuality.getStorage().get(1).getStorage().get(1).equals(expectedShopWithDiscount));
+        assertTrue(controllQuality.getStorage().get(2).getStorage().contains(expectedTrash));
     }
 
     @Test
     public void whenRedistribution() {
-        ControllQuality controllQuality = new ControllQuality(List.of (
+        ControllQuality controllQuality = new ControllQuality(List.of(
                 new Warehouse("Warehouse"), new Shop("Shop"), new Trash("Trash")
         ));
         Calendar created  = Calendar.getInstance();
@@ -60,17 +60,17 @@ public class ControllQualityTest {
         Food expectedShopWithDiscount = new Fish("salmon", expirShopDiscount, created, 1200, 0.8);
         Food expectedTrash = new Fish("carp", expirTrash, created, 1200, 0.8);
         Store warehouse = new Warehouse("Warehouse");
-        warehouse.getSTORAGE().add(expectedWarehouse);
+        warehouse.getStorage().add(expectedWarehouse);
         Store shop = new Shop("Shop");
-        shop.getSTORAGE().add(expectedShop);
-        shop.getSTORAGE().add(expectedShopWithDiscount);
+        shop.getStorage().add(expectedShop);
+        shop.getStorage().add(expectedShopWithDiscount);
         Store trash = new Trash("Trash");
-        trash.getSTORAGE().add(expectedTrash);
+        trash.getStorage().add(expectedTrash);
         List<Store> expected = List.of(warehouse, shop, trash);
-        controllQuality.getStorage().get(0).getSTORAGE().add(expectedShop);
-        controllQuality.getStorage().get(0).getSTORAGE().add(expectedShopWithDiscount);
-        controllQuality.getStorage().get(1).getSTORAGE().add(expectedTrash);
-        controllQuality.getStorage().get(2).getSTORAGE().add(expectedWarehouse);
+        controllQuality.getStorage().get(0).getStorage().add(expectedShop);
+        controllQuality.getStorage().get(0).getStorage().add(expectedShopWithDiscount);
+        controllQuality.getStorage().get(1).getStorage().add(expectedTrash);
+        controllQuality.getStorage().get(2).getStorage().add(expectedWarehouse);
         controllQuality.redistribution();
         assertEquals(expected, controllQuality.getStorage());
     }

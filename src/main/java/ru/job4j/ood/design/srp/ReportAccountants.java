@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 public class ReportAccountants implements Report {
 
-    private final double NALOG = 0.13;
+    private final double nalog = 0.13;
 
     @Override
     public String generate(Predicate<Employee> filter, Store store) {
@@ -14,7 +14,7 @@ public class ReportAccountants implements Report {
             text.append(employee.getName()).append(";")
                     .append(employee.getHired()).append(";")
                     .append(employee.getFired()).append(";")
-                    .append(employee.getSalary() * (1 - NALOG)).append(";")
+                    .append(employee.getSalary() * (1 - nalog)).append(";")
                     .append(System.lineSeparator());
         }
         return text.toString();

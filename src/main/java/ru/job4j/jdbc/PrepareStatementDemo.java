@@ -23,12 +23,12 @@ public class PrepareStatementDemo {
 
     public void insert(City city) {
         try (PreparedStatement statement = connection.prepareStatement("insert into cities(name, population) values (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1,city.getName());
+            statement.setString(1, city.getName());
             statement.setInt(2, city.getPopulation());
             statement.execute();
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    city.setId(generatedKeys.getInt(1   ));
+                    city.setId(generatedKeys.getInt(1));
                 }
             }
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class PrepareStatementDemo {
         return result;
     }
 
-    public List<City> findAll () {
+    public List<City> findAll() {
         List<City> cities = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("select * from cities")) {
             try (ResultSet resultSet = statement.executeQuery()) {

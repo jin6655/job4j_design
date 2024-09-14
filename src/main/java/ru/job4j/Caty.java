@@ -1,6 +1,7 @@
 package ru.job4j;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Caty {
 
@@ -8,25 +9,13 @@ public class Caty {
 
     private String str;
 
-    private static final List<Caty> cats = new ArrayList<>();
+    private static List<Caty> xats = new ArrayList<>();
 
     public Caty() {
     }
 
     public Caty(int x, String str) {
         this.x = x;
-        this.str = str;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public String getStr() {
-        return str;
-    }
-
-    public void setStr(String str) {
         this.str = str;
     }
 
@@ -39,33 +28,8 @@ public class Caty {
                 + '}';
     }
 
-    private static class Item {
-        private String name;
-
-        public Item(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Item item = (Item) o;
-            return Objects.equals(name, item.name);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(name);
-        }
-    }
-
     public static void main(String[] args) throws Exception {
-        Calendar now = Calendar.getInstance();
-        Calendar d1 = Calendar.getInstance();
-        d1.add(Calendar.DAY_OF_YEAR, 10);
-        System.out.println(now.getTime());
-        System.out.println(d1.getTime());
+        System.out.println("!");
         }
 
 }

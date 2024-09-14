@@ -64,6 +64,7 @@ public class ForwardLinked<T> implements Iterable<T> {
             head = prev;
             rsl = true;
         }
+        System.out.println("c");
         return rsl;
     }
 

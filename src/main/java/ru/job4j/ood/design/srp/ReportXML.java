@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -43,7 +42,7 @@ public class ReportXML implements Report {
             this.list = list;
         }
 
-        public Employees () {
+        public Employees() {
 
         }
 

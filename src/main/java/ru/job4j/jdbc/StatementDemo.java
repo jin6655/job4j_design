@@ -36,8 +36,7 @@ public class StatementDemo {
     public static void main(String[] args) throws Exception {
         try (Connection connection = getConnection()) {
             try (Statement statement = connection.createStatement()) {
-                String sql = String.format(
-                        "create table if not exists demo_table(%s, %s);",
+                String sql = String.format("create table if not exists demo_table(%s, %s);",
                         "id serial primary key",
                         "name text"
                 );
@@ -46,6 +45,5 @@ public class StatementDemo {
             }
         }
     }
-
 
 }

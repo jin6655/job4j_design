@@ -2,7 +2,7 @@ package ru.job4j.ood.isp;
 
 import java.util.Iterator;
 
-public class PrintConsole implements MenuPrinter{
+public class PrintConsole implements MenuPrinter {
 
     @Override
     public void print(Menu menu) {

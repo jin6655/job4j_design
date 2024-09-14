@@ -4,10 +4,12 @@ public class CountingRoom {
 
     protected int normHours;
     protected int payPerHour;
+
     public CountingRoom(int normHours, int payPerHour) {
         this.normHours = normHours;
         this.payPerHour = payPerHour;
     }
+
     public int pay(WorkDays workDays) {
         int factHours = 0;
         for (Integer hoursPerDay : workDays) {

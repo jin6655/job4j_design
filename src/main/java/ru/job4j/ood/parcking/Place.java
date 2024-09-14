@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 public interface Place<T extends Car> {
 
-    void Parking(T car);
+    void parking(T car);
 
     int getPlaceSize();
 
